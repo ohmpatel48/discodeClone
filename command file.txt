@@ -1,0 +1,7 @@
+for running tailwindcss
+npx tailwindcss -i src/main/resources/static/css/input.css -o src/main/resources/static/css/output.css --watch
+
+
+BB7EED
+
+9D35F3

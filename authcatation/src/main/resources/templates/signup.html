@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: head(~{::#content})}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content" class="flex w-full justify-center items-center h-full">
+      <div class="flex w-full justify-center items-center h-full">
+        <div
+          class="w-full max-w-sm p-4 bg-[#f9f9f981] border border-gray-300 rounded-lg shadow sm:p-6 md:p-8 dark:bg-[#ffffff13] dark:border-gray-700"
+        >
+          <form class="space-y-4" action="#" id="login_form">
+            <h3
+              class="text-2xl text-center mb-2 font-medium text-gray-900 dark:text-white"
+            >
+              Sign in to our platform
+            </h3>
+            <div class="pb-2">
+              <div id="image_input">
+                <label
+                  for="file_input"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >Upload Image</label
+                >
+                <input
+                  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                  id="file_input"
+                  type="file"
+                  accept="image/*"
+                />
+              </div>
+              <div class="flex justify-center">
+                <div id="avatar_container" class="relative hidden">
+                  <img
+                    id="avatar"
+                    class="w-12 h-12 rounded-full"
+                    src=""
+                    alt="Rounded avatar"
+                  />
+                  <span
+                    id="remove_avatar"
+                    style="top: -5%; right: -5%"
+                    class="absolute text-end text-white bg-red-400 rounded-full w-5 h-5 items-center justify-center cursor-pointer hidden"
+                    >x</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="mb-2 mt-0">
+              <label
+                for="username"
+                class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >Username</label
+              >
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
+                placeholder="xyz123"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label
+                for="email"
+                class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
+                placeholder="name@company.com"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                for="password"
+                class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="••••••••"
+                class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              onclick="change_form()"
+              class="w-full mb-1 text-white bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-800 dark:hover:bg-purple-900 dark:focus:ring-purple-950"
+            >
+              Verify
+            </button>
+            <div
+              class="text-sm font-medium mt-2 text-gray-500 dark:text-gray-300"
+            >
+              Already have an account?
+              <a
+                href="#"
+                class="text-purple-400 hover:underline dark:text-purple-500"
+                >Login here</a
+              >
+            </div>
+          </form>
+
+          <form class="max-w-sm mx-auto hidden" id="verification_form">
+            <h3
+              class="text-2xl text-center mb-2 font-medium text-gray-900 dark:text-white"
+            >
+              Email Verification
+            </h3>
+            <p class="mb-2">
+              We sent an email to <span data-th-text="@{email}"></span>. Enter
+              the code in the mail to Verify.
+            </p>
+            <div class="flex mb-2 space-x-2 rtl:space-x-reverse">
+              <div>
+                <label for="code-1" class="sr-only">First code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-next="code-2"
+                  id="code-1"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="code-2" class="sr-only">Second code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-prev="code-1"
+                  data-focus-input-next="code-3"
+                  id="code-2"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="code-3" class="sr-only">Third code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-prev="code-2"
+                  data-focus-input-next="code-4"
+                  id="code-3"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="code-4" class="sr-only">Fourth code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-prev="code-3"
+                  data-focus-input-next="code-5"
+                  id="code-4"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="code-5" class="sr-only">Fifth code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-prev="code-4"
+                  data-focus-input-next="code-6"
+                  id="code-5"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="code-6" class="sr-only">Sixth code</label>
+                <input
+                  type="text"
+                  maxlength="1"
+                  data-focus-input-init
+                  data-focus-input-prev="code-5"
+                  id="code-6"
+                  class="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required
+                />
+              </div>
+            </div>
+            <p
+              id="helper-text-explanation"
+              class="mt-2 text-sm text-gray-500 dark:text-gray-400"
+            >
+              Please introduce the 6 digit code we sent via email.
+            </p>
+            <button
+              type="submit"
+              class="w-full mt-4 text-white bg-purple-400 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-800 dark:hover:bg-purple-900 dark:focus:ring-purple-950"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

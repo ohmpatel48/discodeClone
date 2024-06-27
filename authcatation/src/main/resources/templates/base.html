@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:fragment="head(content)"
+  xmlns:th="http://www.thymeleaf.org"
+  class="h-screen light"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discode</title>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #avatar_container:hover #avatar {
+        filter: brightness(0.8);
+      }
+      #avatar_container:hover #remove_avatar {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body
+    class="h-full bg-gradient-to-b from-[#9d00ff14] to-white dark:from-[#3b175d] dark:to-black"
+  >
+    <section data-th-replace="${content}"></section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/step.js'}"></script>
+  </body>
+</html>
