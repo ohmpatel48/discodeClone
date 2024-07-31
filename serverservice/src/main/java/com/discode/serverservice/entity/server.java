@@ -26,7 +26,6 @@ public class server {
   public String server_name;
   public String server_profileUrl;
   public String server_InviteString;
-
   public Server_type server_type;
 
 }

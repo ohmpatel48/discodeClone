@@ -11,7 +11,7 @@
     <title>Discode</title>
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
       rel="stylesheet"
     />
     <style>
@@ -31,7 +31,7 @@
   </head>
   <body id="background_color" class="h-full">
     <section data-th-replace="${content}"></section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script data-th-src="@{'/js/step.js'}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script th:src="${'/js/change.js'}"></script>
   </body>
 </html>
