@@ -1,0 +1,273 @@
+<div
+  th:fragment="openservermodel"
+  id="add-server-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative p-4 w-full max-w-md max-h-full">
+    <!-- Modal content -->
+    <div class="relative rounded-lg shadow bg-gray-700">
+      <!-- Modal header -->
+      <div
+        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t"
+      >
+        <h3 class="text-lg font-semibold text-white">Create your own Server</h3>
+        <button
+          type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center"
+          data-modal-toggle="add-server-modal"
+        >
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <div class="p-4 md:p-5">
+        <ul class="space-y-4 mb-4">
+          <li>
+            <button
+              data-modal-target="add-server-form-modal"
+              data-modal-toggle="add-server-form-modal"
+              class="inline-flex items-center justify-between w-full p-5 text-gray-200 bg-gray-400 border border-gray-500 rounded-lg cursor-pointer hover:bg-gray-500"
+            >
+              <div class="block">
+                <div class="w-full text-lg font-semibold">
+                  Create own server
+                </div>
+              </div>
+              <svg
+                class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-200"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </button>
+          </li>
+          <div class="inline-flex items-center justify-center w-full">
+            <hr class="w-64 h-px my-8 bg-gray-200 border-0" />
+            <span
+              class="absolute px-3 font-medium text-white bg-gray-700 -translate-x-1/2 left-1/2"
+              >or</span
+            >
+          </div>
+          <li>
+            <button
+              data-modal-target="join-server-form-modal"
+              data-modal-toggle="join-server-form-modal"
+              onclick="document.getElementById('add-server-modal').classList.add('hidden');"
+              type="button"
+              class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-gray-400 border border-gray-200 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-500"
+            >
+              <div class="block">
+                <div
+                  class="w-full flex justify-start items-start text-lg text-gray-200 font-semibold"
+                >
+                  Join Server
+                </div>
+                <div class="w-full text-gray-300 dark:text-gray-400">
+                  Already have an invite?
+                </div>
+              </div>
+              <svg
+                class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-200"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  th:fragment="addserverformmodel"
+  id="add-server-form-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-sm w-full">
+    <h2 class="text-white text-xl font-semibold mb-4">Customize Your Server</h2>
+    <p class="text-gray-400 mb-6">
+      Give your new server a personality with a name and an icon. You can always
+      change it later.
+    </p>
+    <div class="flex items-center justify-center mb-6">
+      <div
+        class="relative w-24 h-24 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden"
+      >
+        <div class="flex justify-center">
+          <div id="avatar_container" class="relative hidden">
+            <img
+              id="imagePreview"
+              class="w-full h-full object-cover rounded-full"
+              src=""
+              alt="Image Preview"
+            />
+            <span
+              id="remove_avatar"
+              style="top: -5%; right: -5%"
+              class="absolute text-end text-white bg-red-400 rounded-full w-5 h-5 items-center justify-center cursor-pointer hidden"
+              >x</span
+            >
+          </div>
+        </div>
+        <label
+          for="imageUpload"
+          class="absolute inset-0 w-full h-full rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
+        >
+          <svg
+            id="uploadIcon"
+            class="w-6 h-6 text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1 17h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+        </label>
+        <input
+          id="imageUpload"
+          type="file"
+          accept="image/*"
+          class="hidden"
+          onchange="previewImage(event)"
+        />
+      </div>
+    </div>
+    <div class="mb-6">
+      <label for="server-name" class="block text-gray-400 mb-2"
+        >SERVER NAME</label
+      >
+      <input
+        id="server-name"
+        type="text"
+        value="ohm_48's server"
+        class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white focus:outline-none"
+      />
+    </div>
+    <p class="text-gray-400 text-xs mb-6">
+      By creating a server, you agree to Discord's
+      <a href="#" class="text-blue-500 underline">Community Guidelines</a>.
+    </p>
+    <div class="flex justify-between">
+      <button
+        type="button"
+        data-modal-toggle="add-server-form-modal"
+        class="px-4 py-2 bg-gray-700 text-gray-400 rounded-lg focus:outline-none"
+      >
+        Back
+      </button>
+
+      <button
+        class="px-4 py-2 bg-blue-600 text-white rounded-lg focus:outline-none"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  th:fragment="joinserverformmodel"
+  id="join-server-form-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative p-4 w-full max-w-md max-h-full">
+    <!-- Modal content -->
+    <div class="relative rounded-lg shadow bg-gray-700">
+      <!-- Modal header -->
+      <div
+        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t"
+      >
+        <h3 class="text-xl font-semibold text-white">Join a Server</h3>
+        <button
+          type="button"
+          class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-toggle="join-server-form-modal"
+          onclick="document.getElementById('add-server-modal').classList.remove('hidden');"
+        >
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-4 md:p-5">
+        <form class="space-y-4" action="#">
+          <div>
+            <label
+              for="server_link"
+              class="block mb-2 text-sm font-medium text-white"
+              >Enter Server link to join
+            </label>
+            <input
+              type="text"
+              name="server_link"
+              id="server_link"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder=""
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Join Server
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

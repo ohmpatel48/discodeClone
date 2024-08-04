@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AuthcatationApplication<authcatation>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.discode.authcatation.AuthcatationApplication",
+      "projectName": "authcatation",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-MainpageApplication<mainpage>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.discode.mainpage.MainpageApplication",
+      "projectName": "mainpage",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

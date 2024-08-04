@@ -1,0 +1,229 @@
+<div
+  th:fragment="1_sidebar"
+  class="w-20 h-screen p-2 flex flex-col items-end bg-gray-900"
+>
+  <div class="mb-6 flex flex-col items-center gap-2">
+    <img
+      data-th-src="@{'/photo.jpeg'}"
+      alt="Logo"
+      class="w-14 h-14 rounded-full transition-all duration-300"
+    />
+    <hr class="w-10" />
+  </div>
+  <div class="flex flex-col items-center space-y-4">
+    <div class="relative group flex gap-2">
+      <img
+        data-th-src="@{'/photo.jpeg'}"
+        alt="Avatar 4"
+        class="w-14 h-14 rounded-full transition-all duration-300 group-hover:rounded-lg"
+      />
+      <div
+        style="
+          left: -1rem;
+          top: 25%;
+          border-top-right-radius: 0.25rem;
+          border-bottom-right-radius: 0.25rem;
+        "
+        class="absolute inset-y-0 w-2 h-8 bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      ></div>
+    </div>
+    <div class="relative group flex rounded-full bg-gray-600 hover:rounded-lg">
+      <button
+        data-modal-target="add-server-modal"
+        data-modal-toggle="add-server-modal"
+        class="transition-all duration-300"
+      >
+        <svg
+          class="w-14 h-14"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14m-7 7V5"
+          />
+        </svg>
+      </button>
+      <div
+        style="
+          left: -1rem;
+          top: 25%;
+          border-top-right-radius: 0.25rem;
+          border-bottom-right-radius: 0.25rem;
+        "
+        class="absolute inset-y-0 w-2 h-8 bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      ></div>
+    </div>
+  </div>
+</div>
+<div
+  th:fragment="2_sidebar"
+  class="w-18 h-screen flex flex-col items-center bg-gray-800"
+>
+  <div class="mb-2 w-full">
+    <button
+      id="dropdownDelayButton"
+      onclick="changetox()"
+      data-dropdown-toggle="dropdownDelay"
+      data-dropdown-delay="500"
+      class="text-white w-full hover:bg-gray-700 font-medium text-sm p-3 text-center flex justify-between items-center"
+      type="button"
+    >
+      Dropdown hover
+      <svg
+        id="arrow"
+        class="w-2.5 h-2.5 ms-3"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 6"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 4 4 4-4"
+        />
+      </svg>
+      <svg
+        class="w-4 h-4 hidden"
+        id="cross"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18 17.94 6M18 18 6.06 6"
+        />
+      </svg>
+    </button>
+    <hr />
+    <div
+      id="dropdownDelay"
+      style="background-color: black"
+      class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-60"
+    >
+      <ul class="py-2 text-sm text-white" aria-labelledby="dropdownDelayButton">
+        <li class="p-1 py-0">
+          <a href="#" class="block p-2 hover:bg-blue-700 rounded-md"
+            >Dashboard</a
+          >
+        </li>
+        <li class="p-1 py-0">
+          <a href="#" class="block p-2 hover:bg-blue-700 rounded-md"
+            >Settings</a
+          >
+        </li>
+        <li class="p-1 py-0">
+          <a href="#" class="block p-2 hover:bg-blue-700 rounded-md"
+            >Earnings</a
+          >
+        </li>
+        <li class="p-1 py-0">
+          <a href="#" class="block p-2 hover:bg-blue-700 rounded-md"
+            >Sign out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex flex-col w-64 items-center space-y-4">
+    <div id="accordion-collapse" class="w-full" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-1">
+        <button
+          type="button"
+          style="color: #9ca3af"
+          class="flex items-center justify-between w-full p-2 font-medium rtl:text-right text-gray-400 bg-transparent gap-3"
+          data-accordion-target="#accordion-collapse-body-1"
+          aria-expanded="true"
+          aria-controls="accordion-collapse-body-1"
+        >
+          <div class="flex justify-center items-center gap-2">
+            <svg
+              data-accordion-icon
+              style="transition: transform 0.5s ease-in-out"
+              class="w-3 h-3 rotate-180 shrink-0"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5 5 1 1 5"
+              />
+            </svg>
+            <span>text</span>
+          </div>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h14m-7 7V5"
+            />
+          </svg>
+        </button>
+      </h2>
+      <div
+        id="accordion-collapse-body-1"
+        class="hidden text-gray-400"
+        aria-labelledby="accordion-collapse-heading-1"
+      >
+        <ul style="margin: 0.25rem; padding-left: 0.5rem">
+          <li class="p-1 hover:bg-gray-700 rounded-md flex flex-row gap-2">
+            <svg
+              class="w-[29px] h-[29px]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 6.037c0-1.724-1.978-2.665-3.28-1.562L5.638 7.933H4c-1.105 0-2 .91-2 2.034v4.066c0 1.123.895 2.034 2 2.034h1.638l4.082 3.458c1.302 1.104 3.28.162 3.28-1.562V6.037Z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M14.786 7.658a.988.988 0 0 1 1.414-.014A6.135 6.135 0 0 1 18 12c0 1.662-.655 3.17-1.715 4.27a.989.989 0 0 1-1.414.014 1.029 1.029 0 0 1-.014-1.437A4.085 4.085 0 0 0 16 12a4.085 4.085 0 0 0-1.2-2.904 1.029 1.029 0 0 1-.014-1.438Z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M17.657 4.811a.988.988 0 0 1 1.414 0A10.224 10.224 0 0 1 22 12c0 2.807-1.12 5.35-2.929 7.189a.988.988 0 0 1-1.414 0 1.029 1.029 0 0 1 0-1.438A8.173 8.173 0 0 0 20 12a8.173 8.173 0 0 0-2.343-5.751 1.029 1.029 0 0 1 0-1.438Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            asd
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
