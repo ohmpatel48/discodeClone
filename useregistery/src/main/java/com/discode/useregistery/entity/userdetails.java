@@ -28,7 +28,6 @@ import lombok.Builder.Default;
 public class userdetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     String user_id;
 
     String user_name;

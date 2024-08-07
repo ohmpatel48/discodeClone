@@ -11,7 +11,14 @@
         <div
           class="w-full max-w-sm p-4 bg-[#f9f9f981] border border-gray-300 rounded-lg shadow sm:p-6 md:p-8 dark:bg-[#ffffff13] dark:border-gray-700"
         >
-          <form class="space-y-4" action="#" id="login_form">
+          <form
+            class="space-y-4"
+            th:action="@{/signup}"
+            th:object="${signupform}"
+            id="login_form"
+            method="post"
+            enctype="multipart/form-data"
+          >
             <h3
               class="text-2xl text-center mb-2 font-medium text-gray-900 dark:text-white"
             >
@@ -28,6 +35,7 @@
                   class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   id="file_input"
                   type="file"
+                  th:field="*{file}"
                   accept="image/*"
                 />
               </div>
@@ -58,6 +66,7 @@
                 type="text"
                 name="username"
                 id="username"
+                th:field="*{user_name}"
                 class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
                 placeholder="xyz123"
                 required
@@ -73,6 +82,7 @@
                 type="email"
                 name="email"
                 id="email"
+                th:field="*{user_email}"
                 class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
                 placeholder="name@company.com"
                 required
@@ -89,6 +99,7 @@
                 name="password"
                 id="password"
                 placeholder="••••••••"
+                th:field="*{user_password}"
                 class="bg-transparent border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-slate-700 focus:border-slate-700 block w-full p-2.5 dark:bg-transparent dark:border-slate-400 dark:placeholder-slate-300 dark:text-white"
                 required
               />
@@ -105,7 +116,7 @@
             >
               Already have an account?
               <a
-                href="#"
+                th:href="@{/login}"
                 class="text-purple-400 hover:underline dark:text-purple-500"
                 >Login here</a
               >
