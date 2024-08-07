@@ -22,11 +22,9 @@ public class uploadimageconfig {
   private String apiSecret;
 
   @Bean
+  @SuppressWarnings("unchecked")
   public Cloudinary cloudinary() {
-    Map<String, String> config = ObjectUtils.asMap(
-        "cloud_name", cloudName,
-        "api_key", apiKey,
-        "api_secret", apiSecret,
+    Map<String, String> config = ObjectUtils.asMap("cloud_name", cloudName, "api_key", apiKey, "api_secret", apiSecret,
         "secure", true);
     return new Cloudinary(config);
   }

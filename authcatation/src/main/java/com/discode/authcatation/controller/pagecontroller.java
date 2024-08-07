@@ -36,6 +36,7 @@ public class pagecontroller {
         return "signup";
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping("/signup")
     public String postMethodName(@ModelAttribute signupform signupform, RedirectAttributes redirectAttributes) {
         MultipartFile file = signupform.getFile();
