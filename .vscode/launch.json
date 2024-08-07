@@ -19,6 +19,26 @@
       "projectName": "mainpage",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ServerApplication<server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.discode.server.ServerApplication",
+      "projectName": "server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-UseregisteryApplication<useregistery>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.discode.useregistery.UseregisteryApplication",
+      "projectName": "useregistery",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
