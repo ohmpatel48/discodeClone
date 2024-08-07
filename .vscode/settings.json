@@ -1,6 +1,8 @@
 {
     "java.compile.nullAnalysis.mode": "disabled",
     "cSpell.words": [
+        "channelsdata",
+        "discode",
         "userdetails",
         "userservice"
     ]
